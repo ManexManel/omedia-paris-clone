@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.png",
     apple: "/apple-touch-icon.png",
+    shortcut: "/favicon.png",
   },
   openGraph: {
     title: "Omedia Paris | Agence conseil en Communication Luxe",
