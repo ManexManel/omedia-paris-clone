@@ -55,13 +55,15 @@ export function StickyServicesNav() {
         position: "sticky",
         top: 0,
         zIndex: 99,
-        backgroundColor: "rgb(239, 239, 239)",
+        background: "rgba(10,10,10,0.4)",
+        backdropFilter: "blur(24px) saturate(200%)",
+        WebkitBackdropFilter: "blur(24px) saturate(200%)",
+        borderBottom: "1px solid rgba(201,169,110,0.15)",
         height: "50px",
         width: "100%",
         display: "flex",
         alignItems: "center",
         padding: "0 160px",
-        borderBottom: "1px solid #e0e0e0",
       }}
     >
       <ul
@@ -83,17 +85,21 @@ export function StickyServicesNav() {
                   fontFamily: '"Din Pro", sans-serif',
                   fontSize: "12px",
                   fontWeight: isActive ? 600 : 400,
-                  color: isActive ? "#000" : "#333",
+                  color: isActive ? "#c9a96e" : "rgba(255,255,255,0.45)",
                   letterSpacing: "1px",
                   textTransform: "uppercase",
                   padding: "0 15px",
                   textDecoration: "none",
                   whiteSpace: "nowrap",
-                  height: "50px",
+                  height: "34px",
+                  margin: "0 2px",
                   display: "flex",
                   alignItems: "center",
-                  borderBottom: isActive ? "2px solid #000" : "2px solid transparent",
+                  borderRadius: "4px",
+                  background: isActive ? "rgba(201,169,110,0.12)" : "transparent",
+                  border: isActive ? "1px solid rgba(201,169,110,0.3)" : "1px solid transparent",
                   boxSizing: "border-box",
+                  transition: "color 0.3s ease, background 0.3s ease",
                 }}
               >
                 {label}

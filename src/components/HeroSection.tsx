@@ -20,8 +20,14 @@ export function HeroSection() {
         <source src="/videos/showreel.webm" type="video/webm" />
       </video>
 
+      {/* Calque sombre Phase 1.3 */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{ background: "rgba(0,0,0,0.4)", zIndex: 1 }}
+      />
+
       {/* Text Overlay */}
-      <div className="absolute" style={{ bottom: "80px", left: "80px" }}>
+      <div className="absolute" style={{ bottom: "80px", left: "80px", zIndex: 2 }}>
         <p
           className="text-white uppercase mb-5"
           style={{
@@ -36,13 +42,13 @@ export function HeroSection() {
 
         <Link
           href="/fr/armanibeaute-cremanera"
-          className="text-white uppercase inline-block border border-white bg-transparent no-underline hover:bg-white hover:text-black transition-colors duration-200"
+          className="text-white uppercase inline-block no-underline liquid-btn"
           style={{
             fontFamily: "Avenir, sans-serif",
             fontSize: "11px",
             fontWeight: 300,
             letterSpacing: "2px",
-            padding: "10px 24px",
+            padding: "12px 28px",
           }}
         >
           DÉCOUVRIR LA CAMPAGNE

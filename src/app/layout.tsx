@@ -1,10 +1,41 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { ModalProvider } from "@/context/ModalContext";
+import { DiagnosticModal } from "@/components/DiagnosticModal";
 
 export const metadata: Metadata = {
-  title: "OMEDIA PARIS I Agence conseil en Communication Luxe",
+  metadataBase: new URL("https://omediaparis.vercel.app"),
+  title: "Omedia Paris | Agence conseil en Communication Luxe",
   description:
-    "Nous sommes une agence conseil en communication, dédiée aux Maison de luxe. Depuis 30 ans, nous accompagnons les Maisons les plus prestigieuses.",
+    "Nous conjuguons créativité et rentabilité pour les Maisons prestigieuses.",
+  icons: {
+    icon: "/images/logo-omedia.png",
+    apple: "/images/logo-omedia.png",
+  },
+  openGraph: {
+    title: "Omedia Paris | Agence conseil en Communication Luxe",
+    description:
+      "Nous conjuguons créativité et rentabilité pour les Maisons prestigieuses.",
+    url: "https://omediaparis.vercel.app",
+    siteName: "Omedia Paris",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Omedia Paris — Agence conseil en Communication Luxe",
+      },
+    ],
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Omedia Paris | Agence conseil en Communication Luxe",
+    description:
+      "Nous conjuguons créativité et rentabilité pour les Maisons prestigieuses.",
+    images: ["/opengraph-image"],
+  },
 };
 
 export default function RootLayout({
@@ -14,7 +45,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" className="h-full">
-      <body className="min-h-full flex flex-col antialiased">{children}</body>
+      <body className="min-h-full flex flex-col antialiased">
+        <ModalProvider>
+          {children}
+          <DiagnosticModal />
+        </ModalProvider>
+      </body>
     </html>
   );
 }

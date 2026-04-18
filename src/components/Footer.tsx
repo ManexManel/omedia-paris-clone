@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useModal } from "@/context/ModalContext";
 
 function InstagramIcon() {
   return (
@@ -47,73 +48,91 @@ const navLinks = [
 const dinPro = '"Din Pro", sans-serif';
 
 export function Footer() {
+  const { setOpen } = useModal();
   return (
     <footer
       style={{
-        background: "#ffffff",
-        borderTop: "1px solid #e5e5e5",
+        background: "#0a0a0a",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
         padding: "60px 80px",
         display: "flex",
         alignItems: "flex-start",
         gap: "60px",
+        position: "relative",
+        overflow: "hidden",
+        color: "#f5f0ea",
       }}
     >
+      {/* Video background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          position: "absolute",
+          inset: 0,
+          width: "100%",
+          height: "100%",
+          objectFit: "cover",
+          opacity: 0.55,
+          zIndex: 0,
+          pointerEvents: "none",
+        }}
+      >
+        <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260417_061226_74f0749c-a22d-42b3-895e-5d6203bc741c.mp4" type="video/mp4" />
+      </video>
+
       {/* Newsletter section */}
-      <div style={{ width: "300px", flexShrink: 0 }}>
+      <div style={{ width: "300px", flexShrink: 0, position: "relative", zIndex: 1 }}>
         <h2
           style={{
             fontFamily: dinPro,
             fontSize: "48px",
             fontWeight: 700,
             letterSpacing: "3px",
-            color: "#000",
+            color: "#f5f0ea",
             textTransform: "uppercase",
             marginBottom: "24px",
             margin: 0,
             marginBlockEnd: "24px",
           }}
         >
-          NEWSLETTER
+          DIAGNOSTIC
         </h2>
 
-        <div
+        <p
           style={{
-            display: "flex",
-            marginTop: "16px",
-            gap: "12px",
-            flexWrap: "wrap",
+            fontFamily: "Georgia, serif",
+            fontStyle: "italic",
+            fontSize: "14px",
+            color: "rgba(245,240,234,0.55)",
+            margin: "0 0 24px",
+            lineHeight: 1.6,
           }}
         >
-          <input
-            type="email"
-            placeholder="Entrez votre email"
-            style={{
-              border: "1px solid #000",
-              borderRadius: "30px",
-              padding: "12px 24px",
-              width: "240px",
-              background: "transparent",
-              fontSize: "14px",
-              fontFamily: dinPro,
-              outline: "none",
-            }}
-          />
+          Audit de votre stratégie de marque luxe en 48h.
+        </p>
+
+        <div style={{ marginTop: "8px" }}>
           <button
             type="button"
+            onClick={() => setOpen(true)}
+            className="liquid-btn-gold"
             style={{
-              background: "rgb(245, 191, 69)",
-              color: "#fff",
               borderRadius: "6px",
-              padding: "17px 40px",
+              padding: "16px 32px",
               border: "none",
               fontFamily: dinPro,
-              fontSize: "15px",
-              fontWeight: 500,
+              fontSize: "12px",
+              fontWeight: 600,
+              letterSpacing: "2px",
+              textTransform: "uppercase",
               cursor: "pointer",
               whiteSpace: "nowrap",
             }}
           >
-            S&apos;INSCRIRE
+            Demander un diagnostic gratuit →
           </button>
         </div>
 
@@ -152,6 +171,8 @@ export function Footer() {
           display: "flex",
           flexDirection: "column",
           gap: "8px",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         {navLinks.map((link) => (
@@ -163,9 +184,12 @@ export function Footer() {
               fontSize: "13px",
               letterSpacing: "1px",
               textTransform: "uppercase",
-              color: "#000",
+              color: "rgba(245,240,234,0.6)",
               textDecoration: "none",
+              transition: "color 0.3s ease",
             }}
+            onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "#f5f0ea"; }}
+            onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.color = "rgba(245,240,234,0.6)"; }}
           >
             {link.label}
           </Link>
@@ -179,21 +203,23 @@ export function Footer() {
           flexShrink: 0,
           fontFamily: dinPro,
           fontSize: "13px",
-          color: "#000",
+          color: "rgba(245,240,234,0.6)",
           lineHeight: 1.8,
           fontStyle: "normal",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <p style={{ margin: 0 }}>137 BOULEVARD HAUSSMANN 75008 PARIS</p>
         <a
           href="tel:+3344341040"
-          style={{ color: "#000", textDecoration: "none", display: "block" }}
+          style={{ color: "rgba(245,240,234,0.6)", textDecoration: "none", display: "block" }}
         >
           +33 | 44 34 10 40
         </a>
         <a
           href="mailto:contact@omedia.fr"
-          style={{ color: "#000", textDecoration: "none", display: "block" }}
+          style={{ color: "rgba(201,169,110,0.8)", textDecoration: "none", display: "block" }}
         >
           contact@omedia.fr
         </a>
