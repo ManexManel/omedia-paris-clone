@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   description:
     "Nous conjuguons créativité et rentabilité pour les Maisons prestigieuses.",
   icons: {
-    icon: "/images/logo-omedia.png",
-    apple: "/images/logo-omedia.png",
+    icon: "/favicon.png",
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
     title: "Omedia Paris | Agence conseil en Communication Luxe",
